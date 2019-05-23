@@ -1,0 +1,209 @@
+.ui.chat.app {
+  bottom: 0;
+  width: 100%;
+  height: 400px;
+  z-index: 1000;
+  .livechat-canvas {
+    z-index: 99999;
+    border-radius: 0.25em;
+    background: white;
+    padding: 1em;
+    box-shadow: 0px 4px 9px 2px rgba($black, 0.1);
+    position: fixed;
+    right: 3em;
+    bottom: 80px;
+    width: 340px;
+  }
+  .livechat-header {
+    border-radius: 0.25em 0.25em 0 0;
+    margin: -1em -1em 0 -1em;
+    background: #50545D;
+    color: $white;
+    padding: 1.5em 1em;
+    display: flex;
+    align-items: center;
+    p {
+      margin: 0;
+    }
+  }
+  .livechat-subheader {
+    background: $grey;
+    margin: 0 -1em;
+    font-size: 0.9em;
+  }
+  .livechat-circle {
+    position: relative;
+    flex-shrink: 0;
+    align-self: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lighten($primary, 10);
+    margin-right: 1em;
+    color: $white;
+    &.livechat-circle__big {
+      width: 50px;
+      height: 50px; 
+    }
+  }
+  .livechat-notif-count {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid $white;
+    align-items: center;
+    position: absolute;
+    top: -5px;
+    right: -0px;
+    background: $secondary;
+  }
+  .livechat-users-circle {
+    padding: 0.5em 1em;
+    border-bottom: 1px solid $grey;
+    margin: 0 -1em;
+    display: flex;
+  }
+  .livechat-profile {
+    width: 100%;
+  }
+  .livechat-field {
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0.25em;
+    border: 1px solid $grey;
+    display: flex;
+    margin-top: 1em;
+    input {
+      padding: 0.6em 1em;
+      border:0;
+      width: 100%;
+      outline: 0;
+      box-sizing: border-box;
+    }
+    .send {
+      width: 15%;
+      background-image: url('../images/livechat/send.png');
+      background-position: center;
+      background-repeat: no-repeat; 
+      background-size: 50%;
+      background-color: $grey;
+    }
+  }
+  .livechat-content {
+    margin: 0 -1em 0 -1em;
+    background: white;
+    height: 300px;
+    overflow: auto;
+  }
+  .livechat-button {
+    box-shadow: 0px 2px 5px 4px rgba($black, 0.2);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background: $primary;
+    position: fixed;
+    bottom: 1em;
+    right: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icon {
+      margin: 0;
+    }
+  }
+  .livechat-chat {
+    margin: 0;
+    padding: 0;
+    ul, li, p {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      margin: 1em;
+      display: flex;
+      justify-content: flex-end;
+      .livechat-date {
+        margin: 0 1em;
+        font-size: 0.8em;
+      }
+      .livechat-message {
+        border-radius: 0.25em;
+        padding: 1em;
+        background: $grey;
+      }
+    }
+    .livechat-opposite {
+      margin-left: 30px;
+      justify-content: flex-start;
+      .livechat-message {
+        background: $secondary;
+        color: $white;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0px;
+          left: -10px;
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid $secondary;
+        }
+      }
+      .livechat-date {
+        order: 2;
+      }
+    }
+  }
+  .livechat-users {
+    margin: 0;
+    padding: 0;
+    ul, li {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      width: 100%;
+      padding: 1em;
+      border-bottom: 1px solid $grey;
+    }
+    p {
+      margin: 0;
+    }
+    .ui.date {
+      color: lighten($black, 10);
+    }
+  }
+}
+.icon.chatcustom {
+  background-image: url('../images/livechat/livechat.png');
+  background-size: cover;
+}
+.icon.icon-arrow-left {
+  background-image: url('../images/livechat/back-icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;
+  margin-right: 1em;
+}
+.icon.icon-fullscreen {
+  background-image: url('../images/livechat/up-size.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+  margin-left: 0.5em;
+}

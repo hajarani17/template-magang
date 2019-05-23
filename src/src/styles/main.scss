@@ -1,0 +1,592 @@
+@charset "UTF-8";
+
+// @import '_sprite';
+// @import 'node_modules/normalize.css/normalize';
+// @import 'node_modules/sass-easing/_easings';
+// @import 'node_modules/bootstrap/scss/bootstrap';
+
+// @import 'settings/**/*';
+// @import 'global/**/*';
+// @import 'fonts/_fonts';
+// @import 'modules/**/*';
+// @import 'components/**/*';
+// @import 'overides/**/*';
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Font */
+@font-face{
+	font-family: 'BebasNeue';
+	scr: url(../font/BebasNeue-Regular) format('woff');
+}
+
+/* style utama */
+body {
+	font: 18px/36px 'BebasNeue', 'Arial Narrow', arial, sans-serif;
+	background-color: lightgrey;
+}
+
+
+h1 {
+	font-size: 50px;
+	margin: 50px 0;
+	text-align: center;
+	text-shadow: 5px 0 2px white;
+}
+
+
+.container {
+	width: 600px;
+	background-color: white;
+	margin: auto;
+	padding: 30px;
+	box-shadow: 0 0 3px 3px rgba(0,0,0,.3);
+	border-radius: 5px;
+}
+
+.gallery li {
+	width: 120px;
+	height: 126px;
+	overflow: hidden;
+	border-radius: 50%;
+	border: 3px solid #666 ;
+	float: left;
+	margin-right: 22px;
+	position: relative;
+}
+
+.gallery li,
+.gallery li img,
+.gallery li span {
+	/*border-radius: 50%;*/
+}
+
+.gallery li span {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(200, 200, 200,.5);
+	position: absolute;
+	top: 0;
+	text-align: center;
+	/*line-height: 135px;*/
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	color: #333;
+	text-shadow: 1px 1px 1px #ddd;
+	opacity: 1;
+	transform: scale(0) rotate(0);
+	transition: .3s;
+}
+
+
+.gallery li a:hover span {
+	opacity: 1;
+	transform: scale(1) rotate(360deg);
+}
+
+
+
+.clear {
+	clear: both;
+}
+
+
+/* overlay */
+.overlay {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0);
+	z-index: 9999;
+	transition: .8s;
+	text-align: center;
+
+}
+
+.overlay:target {
+	width: auto;
+	height: auto;
+	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0,.7);
+	padding: 100px;
+}
+
+
+.overlay img{
+	/*max-height: 100%;*/
+	max-width: 250px;
+	/*max-height: 120px;*/
+}
+
+
+.overlay:target img {
+	animation: zoomDanFade 1s;
+}
+
+
+.overlay .close {
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	margin-left: -20px;
+	color: white;
+	text-decoration: none;
+	background-color: black;
+	border: 1px solid white;
+	line-height: 14px;
+	padding: 5px;
+	opacity: 0;
+}
+
+
+.overlay:target .close {
+	animation: slideDownFade .5s .5s forwards;
+}
+
+
+.overlay:target .next {
+	animation: fadeAjah .5s .5s forwards;
+}
+
+/* navigasi */
+.next, .prev {
+	width: 57px;
+	height: 57px;
+	background-image: url(../img/next.png);
+	position: absolute;
+	text-indent: -9999px;
+	top: 40%;
+	margin-left: 50px;
+}
+
+
+.prev {
+	background-image: url(../img/prev.png);
+	margin-left: -100px;
+}
+
+
+
+
+/* animasi */
+@keyframes fadeAjah {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+@keyframes zoomDanFade {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes slideDownFade {
+	0% {
+		opacity: 0;
+		margin-top: -20px;
+	}
+
+	100% {
+		opacity: 1;
+		margin-top: 0;
+	}
+}
+
+/*navbar*/
+body {
+	background-color: pink;
+	
+}
+
+.navbar{
+	z-index: 9;
+}
+
+.box1, .box2 {
+	display: flex;
+}
+.togle{
+	padding: 0 15px;
+	position: relative;
+	
+}
+
+.togle > .menu-list{
+	display: none;
+	position: absolute;
+	top: 25px;
+	background: #489fdf;
+	width: 100px;
+	padding: 15px;
+	border-radius: 15px;
+}
+
+
+
+.togle:hover .menu-list {
+	display: block;
+}
+
+.togle > .menu-list li:hover{
+	background-color: white;
+}
+
+.togle:hover {
+	background-color: aqua;
+}
+
+.sidebar {
+	width: 15%;
+	position: fixed;
+	z-index: 2;
+	top: 50px;
+	left: 0;
+	bottom: 0;
+	background: #cccccc;
+	color: black;
+}
+.sidebar > ul {
+	a {
+		text-decoration: none;
+		color: rgb(90, 60, 60);
+		text-decoration: none;
+	}
+	li{
+		padding: 15px 25px;
+		&.active {
+			font-weight: 900;
+		}
+	}
+}
+
+.sidebar li:hover {
+	background-color: #e2e2e2;
+	color: white;
+}
+
+.content {
+	padding-left: 17%;
+	padding-right: 35px;
+	padding-top: 70px;
+	background: white;
+	height: 100vh;
+		.isi-content{
+			padding: 25px 50px;
+		}
+}
+
+span.belum_verif {
+	color: orange;
+}
+
+span.pembayaran {
+	color: blue;
+}
+
+span.proses {
+	color: skyblue;
+}
+
+span.saldo_docotin {
+	color: green;
+}
+
+span.habis {
+	color: red;
+}
+
+span.sukses {
+	color: green;
+}
+
+span.success {
+	color: green;
+}
+
+span.ignore {
+	color: red;
+}
+
+
+.content > h1 {
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+.content > li {
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.panel > .panel-heading {
+	text-align: center;
+	font-size: 3rem;
+	font-weight: bolder;
+}
+
+.panel > .form-group {
+	padding-left: 30px;
+}
+
+.panel > .panel-body {
+	padding-left: 60px;
+}
+
+.table tr td{
+	text-align: center;
+}
+
+.search-form{
+	margin: auto;
+	width: 450px;
+	display: flex;
+		h5{
+			width: 30%;
+		}
+}
+
+.bordered-box {
+	border: 3px solid grey;
+	padding : 25px;
+	margin: 3px;
+}
+
+.bordered-box {
+	tr td {
+		padding-left: 100px;
+	}
+}
+
+.bordered-box > h4, h5 {
+	text-align: center;
+}
+
+.bordered-box1 {
+	border: 3px solid grey;
+	padding: 12px;
+	margin-bottom: 8px;
+}
+
+
+nav .container-fluid {
+	background-color: #333333;
+}
+
+nav.navbar{
+	position: fixed;
+    min-height: 50px;
+    right: 0;
+    left: 0;
+}
+
+.logo{
+	text-align: center;
+	.doco-logo{
+		width: 150px;
+	}
+}
+
+.menu {
+	width: 50px;
+}
+
+.row > .menu {
+	width: 70px;
+}
+
+.col-md-5 > .panel, .bold {
+	font-weight: bold;
+}
+
+.belum_verifikasi {
+	color: orange;
+}
+
+.cash {
+	color: green;
+}
+
+.menu-pics {
+	width: 170px;
+	height: 170px;
+	img{
+		width: 100%;
+		height: 100%
+	}
+}
+
+.custom-table {
+	tr td {
+		padding: 6px 10px;
+	}
+}
+
+.jumlah {
+	margin-top: 30%;
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-align: left;
+}
+
+.total {
+	font-size: 4rem;
+	font-weight: 900;
+	text-align: left;
+}
+
+.total-keseluruhan {
+	margin-top: 5%;
+	font-size: 1.8rem;
+	font-weight: 600;
+	text-align: left;
+}
+
+.saldo {
+	margin-top: 20%;
+	font-size: 1.8rem;
+	font-weight: 600;
+	text-align: left;
+	color: green;
+}
+
+.saldo-anda {
+	font-size: 3rem;
+	font-weight: 400;
+	text-align: left;
+	color: green;
+}
+
+.d-flex{
+	display: flex;
+}
+.circle-process{
+	text-align: center;
+	margin: 0 5px;
+		.step{
+			width: 35px;
+			height: 35px;
+			text-align: center;
+			background: #ddd;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			border-radius: 50%;
+			box-shadow: 0 0 3px #666;
+			font-weight: bold;
+			margin: auto;
+		}
+		.desc{
+			font-size: 1rem;
+			margin-top: 3px;
+		}
+}
+.circle-process.done .step{
+	background: #63d187;
+}
+
+.habis {
+	color: red;
+}
+.saldo-habis {
+	margin-top: 20%;
+	font-size: 1.8rem;
+	font-weight: 600;
+	text-align: left;
+	color: red;
+}
+
+.saldo-anda-habis {
+	font-size: 3rem;
+	font-weight: 400;
+	text-align: left;
+	color: red;
+}
+
+.col-md-7 > .d-flex {
+	display: flex;
+	justify-content: space-between;
+}
+
+.jumlah-habis {
+	margin-top: 30%;
+	font-size: 1.8rem;
+	font-weight: 600;
+	color: red;
+}
+
+.detail-va{
+	tr td{
+		padding: 10px 7px;
+	}
+}
+.centered-table{
+	margin: auto;
+}
+.navbar {
+	border: none;
+}
