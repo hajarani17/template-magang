@@ -285,8 +285,6 @@ body {
 	border-radius: 15px;
 }
 
-
-
 .togle:hover .menu-list {
 	display: block;
 }
@@ -325,7 +323,7 @@ body {
 
 .sidebar li:hover {
 	background-color: #e2e2e2;
-	color: white;
+	color:black;
 }
 
 .content {
@@ -371,6 +369,9 @@ span.ignore {
 	color: red;
 }
 
+span.status {
+	color:red;
+}
 
 .content > h1 {
 	margin-top: 50px;
@@ -411,7 +412,7 @@ span.ignore {
 }
 
 .bordered-box {
-	border: 3px solid grey;
+	border: 1px solid grey;
 	padding : 25px;
 	margin: 3px;
 }
@@ -425,13 +426,6 @@ span.ignore {
 .bordered-box > h4, h5 {
 	text-align: center;
 }
-
-.bordered-box1 {
-	border: 3px solid grey;
-	padding: 12px;
-	margin-bottom: 8px;
-}
-
 
 nav .container-fluid {
 	background-color: #333333;
@@ -494,8 +488,8 @@ nav.navbar{
 }
 
 .total {
-	font-size: 4rem;
-	font-weight: 900;
+	font-size: 3rem;
+	font-weight: 600;
 	text-align: left;
 }
 
@@ -515,8 +509,8 @@ nav.navbar{
 }
 
 .saldo-anda {
-	font-size: 3rem;
-	font-weight: 400;
+	font-size: 2.25rem;
+	font-weight: 600;
 	text-align: left;
 	color: green;
 }
@@ -561,8 +555,8 @@ nav.navbar{
 }
 
 .saldo-anda-habis {
-	font-size: 3rem;
-	font-weight: 400;
+	font-size: 2rem;
+	font-weight: 700;
 	text-align: left;
 	color: red;
 }
@@ -574,7 +568,7 @@ nav.navbar{
 
 .jumlah-habis {
 	margin-top: 30%;
-	font-size: 1.8rem;
+	font-size: 1.15rem;
 	font-weight: 600;
 	color: red;
 }
@@ -590,3 +584,36 @@ nav.navbar{
 .navbar {
 	border: none;
 }
+
+.navbar>.container-fluid .navbar-brand {
+	color: white;
+}
+
+.bordered-box > h4 {
+	font-weight: bold;
+}
+
+span.saldo-bertambah {
+	color: green;
+}
+.bordered-box > h5 {
+	color: blue;
+}
+.panel-total {
+	margin-top: 20px;
+	box-shadow: 0 0 8px grey;
+	padding-left: 10px;
+}
+
+.bordered-box > .box {
+	width: 60%;
+}
+.card {
+	border-bottom: 1px solid grey;
+	margin-bottom: 15px;
+	padding: 15px;
+}
+.navbar-default .navbar-nav>li>a {
+	color: white !important;
+}
+
