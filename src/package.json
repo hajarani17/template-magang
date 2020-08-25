@@ -26,7 +26,7 @@
     "bootstrap-vue": "^2.0.0-rc.11",
     "chart.js": "^2.7.2",
     "dm-file-uploader": "^1.0.2",
-    "highcharts": "^6.1.0",
+    "highcharts": "^8.2.0",
     "jquery-maskmoney": "^3.0.2",
     "lazy-line-painter": "^1.7.0",
     "normalize.css": "^5.0.0",
